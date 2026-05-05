@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Pressing | Pressing et Retouches</title>
+    <meta name="description" content="Mon Pressing. Pressing, blanchisserie, ameublement et retouches. Ouvert en continu de 9h à 19h30 du Lundi au Samedi.">
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0ea5e9',    /* Cyan/Azur frais */
+                        primaryHover: '#0284c7',
+                        navy: '#1e3a8a',       /* Bleu marine élégant pour les textes */
+                        navyDark: '#172554',
+                        light: '#f8fafc',      /* Fond très clair évoquant la propreté */
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Styles & Micro-animations */
+        body {
+            background-color: #f8fafc;
+            color: #1e3a8a;
+        }
+        
+        .nav-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .feature-icon-wrapper {
+            transition: background-color 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon-wrapper {
+            background-color: #0ea5e9;
+            color: white;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-primary selection:text-white">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#" class="text-2xl font-bold text-navy tracking-tight">
+                        MON <span class="text-primary">PRESSING</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-gray-600 hover:text-primary font-medium transition-colors">Nos Prestations</a>
+                    <a href="#pourquoi-nous" class="text-gray-600 hover:text-primary font-medium transition-colors">Pourquoi nous ?</a>
+                    <a href="#contact" class="text-gray-600 hover:text-primary font-medium transition-colors">Accès & Contact</a>
+                    
+                    <a href="tel:0123456789" class="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-full shadow-sm text-white bg-primary hover:bg-primaryHover transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        01 23 45 67 89
+                    </a>
+                </div>
+                
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-navy focus:outline-none" aria-label="Ouvrir le menu">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 shadow-lg absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Nos Prestations</a>
+                <a href="#pourquoi-nous" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Pourquoi nous ?</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-gray-700 hover:text-primary hover:bg-gray-50 rounded-md">Accès & Contact</a>
+                <div class="pt-4">
+                    <a href="tel:0123456789" class="flex justify-center items-center w-full px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-primary hover:bg-primaryHover">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        Appeler le 01 23 45 67 89
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <!-- Background Decoration -->
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-sky-50 via-white to-white opacity-70"></div>
+        
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-4xl mx-auto">
+                <!-- Badge Horaires -->
+                <div class="inline-flex items-center px-4 py-2 rounded-full bg-blue-50 border border-blue-100 text-primary font-medium text-sm mb-8">
+                    <svg class="w-4 h-4 mr-2 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    Ouvert en continu de 09h00 à 19h30 du Lundi au Samedi
+                </div>
+                
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-navy tracking-tight mb-6 leading-tight">
+                    L'excellence et le soin absolu <br class="hidden md:block" /> pour <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-600">votre linge</span>
+                </h1>
+                
+                <div class="flex items-center justify-center gap-2 mb-6 bg-white border border-gray-100 shadow-sm px-5 py-2.5 rounded-full w-max mx-auto">
+                    <svg class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <span class="text-lg font-bold text-navy">4,2/5</span>
+                    <span class="text-sm text-gray-500 font-medium ml-1">sur 64 avis Google</span>
+                </div>
+                
+                <p class="mt-4 text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+                    Confiez vos vêtements et textiles à de véritables experts du pressing. Un nettoyage irréprochable, rapide et fiable, au cœur de votre ville.
+                </p>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="#services" class="inline-flex justify-center items-center px-8 py-4 border border-transparent text-base font-medium rounded-full shadow-lg text-white bg-navy hover:bg-navyDark transition-all hover:-translate-y-1">
+                        Voir nos services
+                    </a>
+                    <a href="#contact" class="inline-flex justify-center items-center px-8 py-4 border border-gray-200 text-base font-medium rounded-full text-navy bg-white hover:bg-gray-50 transition-all shadow-sm">
+                        Nous trouver
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-sm font-bold text-primary tracking-wide uppercase mb-2">Notre Expertise</h2>
+                <h3 class="text-3xl md:text-4xl font-extrabold text-navy">Des prestations sur mesure</h3>
+                <div class="w-24 h-1 bg-primary mx-auto mt-6 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-soft border border-gray-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">Pressing & Nettoyage à sec</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        Traitement délicat pour vos costumes, robes et vêtements fragiles. Nous redonnons vie à vos pièces préférées avec des techniques respectueuses des fibres.
+                    </p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-soft border border-gray-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 10h18M3 14h18m-9-4v8m-7 0h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">Blanchisserie & Repassage</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        Fini la corvée du repassage ! Un service impeccable pour vos chemises et votre linge du quotidien, pliés ou sur cintre, prêts à être portés.
+                    </p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-soft border border-gray-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">Ameublement</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        Nettoyage en profondeur de vos couettes, rideaux, housses de canapé et tapis. Assainissez votre intérieur en toute sérénité pour un confort optimal.
+                    </p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card bg-white rounded-2xl p-8 shadow-soft border border-gray-100">
+                    <div class="w-14 h-14 bg-blue-50 rounded-xl flex items-center justify-center mb-6 text-primary">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L19 19m-7-7l7-7m-7 7l-2.879 2.879M12 12L9.121 9.121m0 5.758a3 3 0 10-4.243-4.243 3 3 0 004.243 4.243z"></path></svg>
+                    </div>
+                    <h4 class="text-xl font-bold text-navy mb-3">Retouches & Couture</h4>
+                    <p class="text-gray-600 leading-relaxed">
+                        Ajustements sur mesure, ourlets, fermetures éclair et réparations diverses. Nos couturières expérimentées subliment et prolongent la vie de vos vêtements.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi nous choisir Section -->
+    <section id="pourquoi-nous" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative">
+                        <!-- Photo de la devanture -->
+                        <div class="aspect-w-4 aspect-h-5 rounded-2xl shadow-xl overflow-hidden relative min-h-[400px]">
+                            <img src="https://images.unsplash.com/photo-1545173168-9f1947eebb7f?q=80&w=1000&auto=format&fit=crop" alt="Devanture de notre pressing" class="absolute inset-0 w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl border border-gray-50 hidden sm:block">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-blue-50 text-primary w-12 h-12 rounded-full flex items-center justify-center font-bold text-xl">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-sm text-gray-500 font-medium">Satisfaction client</p>
+                                    <p class="text-navy font-bold text-lg">Approuvé par vous</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="text-sm font-bold text-primary tracking-wide uppercase mb-2">Notre Différence</h2>
+                    <h3 class="text-3xl md:text-4xl font-extrabold text-navy mb-6">Pourquoi choisir notre pressing ?</h3>
+                    <p class="text-gray-600 text-lg mb-10 leading-relaxed">
+                        Face aux exigences de votre quotidien, nous mettons un point d'honneur à vous offrir une qualité de service irréprochable, qui allie tradition du métier et modernité.
+                    </p>
+                    
+                    <div class="space-y-8">
+                        <!-- Feature 1 -->
+                        <div class="flex feature-card group cursor-default">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center feature-icon-wrapper">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold text-navy mb-2">Savoir-faire artisanal</h4>
+                                <p class="text-gray-600">Des années d'expérience et une passion pour le travail bien fait. Chaque vêtement est inspecté et traité avec la plus grande attention aux détails.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="flex feature-card group cursor-default">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center feature-icon-wrapper">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold text-navy mb-2">Rapidité et fiabilité</h4>
+                                <p class="text-gray-600">Nous comprenons vos urgences. Profitez de nos délais de restitution courts sans aucun compromis sur la qualité de la prestation fournie.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="flex feature-card group cursor-default">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-12 h-12 rounded-full bg-blue-50 text-primary flex items-center justify-center feature-icon-wrapper">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                                </div>
+                            </div>
+                            <div class="ml-6">
+                                <h4 class="text-xl font-bold text-navy mb-2">Emplacement pratique</h4>
+                                <p class="text-gray-600">Idéalement situés en centre-ville, nous sommes facilement accessibles au cœur de votre quartier pour vous simplifier la vie.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-navy py-16 relative overflow-hidden">
+        <!-- Decorative blobs -->
+        <div class="absolute top-0 left-0 w-64 h-64 bg-primary rounded-full mix-blend-multiply filter blur-3xl opacity-20 -translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 right-0 w-64 h-64 bg-sky-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-4">
+                Besoin d'un nettoyage urgent ?
+            </h2>
+            <p class="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+                Passez nous voir en boutique ou appelez-nous directement. Nous sommes là pour vous toute la journée, sans interruption.
+            </p>
+            <a href="tel:0123456789" class="inline-flex items-center px-8 py-4 border border-transparent text-lg font-bold rounded-full shadow-lg text-navy bg-white hover:bg-gray-50 transition-colors">
+                <svg class="w-5 h-5 mr-2 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                Appeler le 01 23 45 67 89
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer / Contact -->
+    <footer id="contact" class="bg-navyDark text-white pt-20 pb-10 border-t border-navy">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 mb-16">
+                <!-- Info -->
+                <div>
+                    <h3 class="text-2xl font-bold mb-6">MON <span class="text-primary">PRESSING</span></h3>
+                    <p class="text-blue-200 mb-8 leading-relaxed text-sm">
+                        Votre partenaire de confiance pour l'entretien et le soin de vos vêtements et textiles. Service premium, rapide et fiable.
+                    </p>
+                    <div class="flex space-x-4">
+                        <!-- Social Icons Placeholder -->
+                        <a href="#" class="w-10 h-10 rounded-full bg-navy flex items-center justify-center hover:bg-primary transition-colors text-white" aria-label="Facebook">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd"></path></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact & Hours -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6 text-white uppercase tracking-wider">Contact & Horaires</h4>
+                    <ul class="space-y-5">
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                            <span class="ml-3 text-blue-100">
+                                123 Rue de la République<br>
+                                75001 Paris
+                            </span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                            <a href="tel:0123456789" class="ml-3 text-white font-bold hover:text-primary transition-colors text-lg">01 23 45 67 89</a>
+                        </li>
+                        <li class="flex items-start">
+                            <svg class="w-6 h-6 text-primary flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <div class="ml-3">
+                                <span class="block text-white font-semibold">Du Lundi au Samedi</span>
+                                <span class="block text-primary font-bold bg-navy/50 px-2 py-1 rounded mt-1 inline-block border border-navy">09h00 - 19h30 sans interruption</span>
+                                <span class="block text-blue-200 text-sm mt-1">Dimanche : Fermé</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Map -->
+                <div class="h-64 rounded-xl overflow-hidden bg-navy border border-navy shadow-inner flex items-center justify-center relative">
+                    <!-- Intégrer la carte Google Maps ici -->
+                    <div class="text-center p-4">
+                        <svg class="w-10 h-10 text-gray-400 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"></path></svg>
+                        <p class="text-sm text-gray-400 font-medium"><!-- Intégrer la carte Google Maps ici --></p>
+                        <p class="text-xs text-gray-500 mt-2">[ Espace réservé pour l'iframe ]</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pt-8 border-t border-navy text-center md:text-left md:flex justify-between items-center">
+                <p class="text-blue-300 text-sm">
+                    &copy; 2026 Mon Pressing. Tous droits réservés.
+                </p>
+                <div class="mt-4 md:mt-0 space-x-4 text-sm text-blue-300">
+                    <a href="#" class="hover:text-white transition-colors">Mentions légales</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('nav-scrolled');
+                navbar.classList.remove('bg-white');
+            } else {
+                navbar.classList.remove('nav-scrolled');
+                navbar.classList.add('bg-white');
+            }
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu on click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
