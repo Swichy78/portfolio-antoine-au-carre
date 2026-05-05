@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agence Vision | Solutions Innovantes</title>
+    <meta name="description" content="Découvrez l'Agence Vision : conseil, stratégie, développement et accompagnement sur-mesure pour donner vie à vos projets.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#eff6ff',
+                            100: '#dbeafe',
+                            500: '#3b82f6',
+                            600: '#2563eb',
+                            700: '#1d4ed8',
+                            900: '#1e3a8a',
+                        },
+                        dark: {
+                            800: '#1f2937',
+                            900: '#111827',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(to right, rgba(17, 24, 39, 0.9), rgba(17, 24, 39, 0.7)), url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="font-display text-2xl font-bold text-white tracking-wide" id="logo-text">Agence Vision</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#services" class="text-white hover:text-primary-500 transition font-medium">Nos Services</a>
+                    <a href="#expertise" class="text-white hover:text-primary-500 transition font-medium">Notre Expertise</a>
+                    <a href="#contact" class="bg-primary-600 hover:bg-primary-700 text-white px-6 py-2 rounded-full font-medium transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">Contactez-nous</a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-white hover:text-primary-500 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="md:hidden hidden bg-dark-900 border-t border-gray-800 absolute w-full">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#services" class="block px-3 py-3 text-base font-medium text-white hover:text-primary-500 hover:bg-dark-800 rounded-md">Nos Services</a>
+                <a href="#expertise" class="block px-3 py-3 text-base font-medium text-white hover:text-primary-500 hover:bg-dark-800 rounded-md">Notre Expertise</a>
+                <a href="#contact" class="block px-3 py-3 text-base font-medium text-primary-500 hover:text-white hover:bg-dark-800 rounded-md">Contactez-nous</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="hero-bg h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-3xl animate-fade-in-up">
+                <div class="inline-block px-4 py-1.5 rounded-full border border-primary-600 bg-dark-900/50 text-primary-500 text-sm font-semibold mb-6 tracking-wider uppercase">
+                    Stratégie & Innovation
+                </div>
+                <h1 class="font-display text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6">
+                    Propulsez votre <br/>
+                    <span class="text-primary-500">vision d'entreprise.</span>
+                </h1>
+                <p class="text-xl text-gray-200 mb-10 max-w-2xl leading-relaxed">
+                    Nous accompagnons les entreprises dans leur transformation digitale et leur stratégie de croissance grâce à des solutions sur-mesure et innovantes.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-primary-600 hover:bg-primary-700 text-white px-8 py-4 rounded-full font-semibold text-lg transition shadow-lg shadow-primary-600/30 text-center flex items-center justify-center gap-2">
+                        Démarrer un projet
+                    </a>
+                    <a href="#services" class="bg-white/10 hover:bg-white/20 backdrop-blur border border-white/20 text-white px-8 py-4 rounded-full font-semibold text-lg transition text-center">
+                        Découvrir nos services
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Nos Services -->
+    <section id="services" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-4xl font-bold text-dark-900 mb-4">Nos Domaines d'Intervention</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-600 text-lg">Une gamme complète de services pour répondre à vos enjeux de développement et de croissance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800" alt="Consulting et Stratégie" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-dark-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center text-primary-500 text-xl absolute -top-7 right-8 shadow-lg border-4 border-white">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-dark-900 mb-3">Stratégie</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Analyse de marché, définition d'objectifs et élaboration de plans d'action pour assurer le développement pérenne de votre activité.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Développement Web" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-dark-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center text-primary-500 text-xl absolute -top-7 right-8 shadow-lg border-4 border-white">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-dark-900 mb-3">Développement Web</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Création d'applications web modernes, responsives et performantes, adaptées aux besoins spécifiques de votre entreprise.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80&w=800" alt="Marketing Digital" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-dark-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center text-primary-500 text-xl absolute -top-7 right-8 shadow-lg border-4 border-white">
+                            <i class="fas fa-bullhorn"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-dark-900 mb-3">Marketing Digital</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Acquisition de trafic, gestion des réseaux sociaux et optimisation du taux de conversion pour maximiser votre visibilité en ligne.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-gray-100 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&q=80&w=800" alt="Design & UX" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-dark-900/20 group-hover:bg-transparent transition duration-300"></div>
+                    </div>
+                    <div class="p-8 relative">
+                        <div class="w-14 h-14 bg-dark-900 rounded-full flex items-center justify-center text-primary-500 text-xl absolute -top-7 right-8 shadow-lg border-4 border-white">
+                            <i class="fas fa-pencil-ruler"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-dark-900 mb-3">Design & UX</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">
+                            Conception d'interfaces intuitives et attrayantes qui offrent une expérience utilisateur exceptionnelle et renforcent votre marque.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pourquoi nous faire confiance -->
+    <section id="expertise" class="py-24 bg-gray-50 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <div class="lg:w-1/2">
+                    <div class="relative rounded-2xl overflow-hidden shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1000" alt="Notre équipe au travail" class="w-full h-[500px] object-cover">
+                        <div class="absolute inset-0 bg-dark-900/10"></div>
+                        
+                        <!-- Floating Badge -->
+                        <div class="absolute bottom-6 right-6 bg-white p-4 rounded-xl shadow-xl flex items-center gap-4">
+                            <div class="text-center">
+                                <div class="text-3xl font-bold text-dark-900">10+</div>
+                                <div class="text-xs text-gray-500 uppercase tracking-wider font-semibold">Ans d'expérience</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:w-1/2">
+                    <h2 class="font-display text-4xl font-bold text-dark-900 mb-6">L'expertise au service de votre réussite.</h2>
+                    <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                        Notre équipe multidisciplinaire allie créativité, technologie et sens des affaires pour vous proposer des solutions performantes, pérennes et parfaitement alignées avec vos ambitions.
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
+                                <i class="fas fa-users text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-900 text-lg">Équipe Dévouée</h4>
+                                <p class="text-gray-600">Des experts passionnés qui s'investissent pleinement dans la réussite de vos projets.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
+                                <i class="fas fa-rocket text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-900 text-lg">Approche Agile</h4>
+                                <p class="text-gray-600">Une méthodologie de travail flexible qui permet de s'adapter rapidement aux évolutions de votre marché.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex gap-4 items-start">
+                            <div class="w-12 h-12 rounded-full bg-primary-50 flex items-center justify-center text-primary-600 flex-shrink-0">
+                                <i class="fas fa-chart-line text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-dark-900 text-lg">Résultats Mesurables</h4>
+                                <p class="text-gray-600">Nous concevons des stratégies axées sur la performance et le retour sur investissement.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Informations Pratiques & Contact -->
+    <section id="contact" class="py-24 bg-dark-900 text-white relative">
+        <!-- Decoration -->
+        <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary-700 via-primary-500 to-primary-700"></div>
+        
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-display text-4xl font-bold text-white mb-4">Contactez-nous</h2>
+                <div class="w-24 h-1 bg-primary-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-gray-300 text-lg">Prêt à donner vie à votre projet ? Échangeons sur vos besoins.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+                
+                <!-- Contact Info -->
+                <div class="space-y-10">
+                    <!-- Adresse -->
+                    <div class="flex items-start gap-5 bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <div class="w-14 h-14 rounded-full bg-primary-600 flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Nos Locaux</h3>
+                            <p class="text-gray-300 leading-relaxed text-lg">
+                                123 Avenue de l'Innovation<br>
+                                75000 Paris, France
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Email -->
+                    <div class="flex items-start gap-5 bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <div class="w-14 h-14 rounded-full bg-primary-600 flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="w-full">
+                            <h3 class="text-xl font-semibold mb-3">Email</h3>
+                            <a href="mailto:contact@agence-vision.fr" class="text-gray-300 hover:text-primary-400 transition text-lg block">
+                                contact@agence-vision.fr
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Téléphone -->
+                    <div class="flex items-start gap-5 bg-white/5 p-6 rounded-2xl border border-white/10">
+                        <div class="w-14 h-14 rounded-full bg-primary-600 flex items-center justify-center text-2xl flex-shrink-0">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Téléphone</h3>
+                            <a href="tel:0123456789" class="text-2xl font-bold text-white hover:text-primary-500 transition block mb-1">
+                                01 23 45 67 89
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire de Contact -->
+                <div class="bg-gray-800 rounded-2xl border border-gray-700 overflow-hidden shadow-2xl p-8">
+                    <h3 class="text-2xl font-semibold text-white mb-6">Envoyez-nous un message</h3>
+                    <form class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Nom complet</label>
+                            <input type="text" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500" placeholder="Jean Dupont">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Email</label>
+                            <input type="email" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500" placeholder="jean.dupont@email.com">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-400 mb-1">Message</label>
+                            <textarea rows="4" class="w-full bg-gray-900 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-primary-500 focus:ring-1 focus:ring-primary-500" placeholder="Comment pouvons-nous vous aider ?"></textarea>
+                        </div>
+                        <button type="button" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 rounded-lg transition">
+                            Envoyer le message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="font-display text-xl font-bold text-white tracking-wide">
+                Agence Vision
+            </div>
+            <div class="text-gray-400 text-sm">
+                &copy; 2026 Agence Vision. Tous droits réservés.
+            </div>
+            <div class="flex gap-4">
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center text-gray-400 hover:bg-primary-600 hover:text-white transition">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts pour l'interactivité basique -->
+    <script>
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        const logoText = document.getElementById('logo-text');
+        const links = navbar.querySelectorAll('.hidden.md\\:flex a:not(.bg-primary-600)');
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md', 'py-0');
+                navbar.classList.remove('py-2');
+                logoText.classList.remove('text-white');
+                logoText.classList.add('text-dark-900');
+                mobileBtn.classList.remove('text-white');
+                mobileBtn.classList.add('text-dark-900');
+                links.forEach(link => {
+                    link.classList.remove('text-white');
+                    link.classList.add('text-dark-900');
+                });
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md', 'py-0');
+                navbar.classList.add('py-2');
+                logoText.classList.add('text-white');
+                logoText.classList.remove('text-dark-900');
+                mobileBtn.classList.add('text-white');
+                mobileBtn.classList.remove('text-dark-900');
+                links.forEach(link => {
+                    link.classList.add('text-white');
+                    link.classList.remove('text-dark-900');
+                });
+            }
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile menu when clicking a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
